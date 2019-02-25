@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" package="com.duzi.kkangsample">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AlarmActivity">
+            <intent-filter>
+                <!--우리 앱에서 실행시키는 것이 아닌 알람매니저에 등록되어있는 시간에 실행이 되야하므로
+                 암시적 인텐트를 통해서 실행시킨다-->
+                <action android:name="test.ACTION_ALARM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <receiver
+                android:name=".NotiReceiver"
+                android:enabled="true"
+                android:exported="true">
+        </receiver>
+        <receiver
+                android:name=".CancelReceiver"
+                android:enabled="true"
+                android:exported="true">
+        </receiver>
+    </application>
+
+</manifest>
